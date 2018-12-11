@@ -69,6 +69,7 @@ public class BubbleFragment extends Fragment {
     };
 
 
+
     public BubbleFragment() {
         // Required empty public constructor
     }
@@ -110,6 +111,7 @@ public class BubbleFragment extends Fragment {
 
         bubblePicker = (BubblePicker) view.findViewById(R.id.picker);
         bubblePicker.setCenterImmediately(true);
+//        bubblePicker.setClipBounds(Rect);
         ArrayList<PickerItem> listItems = new ArrayList<>();
         for (int i = 0; i < names.length; i++) {
             //names[i], colors[i], Color.WHITE, getDrawable((images[i])
@@ -161,24 +163,6 @@ public class BubbleFragment extends Fragment {
         bubblePicker.onPause();
     }
 
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
 
     @Override
     public void onDetach() {
