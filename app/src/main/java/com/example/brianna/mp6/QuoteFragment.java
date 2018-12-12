@@ -44,9 +44,6 @@ public class QuoteFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    //////////////////////////////////////////////////
-
-
     /** Request queue for our network requests. */
     private static RequestQueue requestQueue;
     public final static String API_BASE_URL = "https://favqs.com/api/";
@@ -67,15 +64,6 @@ public class QuoteFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment QuoteFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static QuoteFragment newInstance(String param1, String param2) {
         QuoteFragment fragment = new QuoteFragment();
         Bundle args = new Bundle();
@@ -96,7 +84,6 @@ public class QuoteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_quote, container, false);
     }
 
@@ -115,96 +102,9 @@ public class QuoteFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
-//    private void getQuotes() {
-//        String url = API_BASE_URL + "quotes";
-//        RequestParams params = new RequestParams();
-//        //params.put(API_KEY_PARAM,API_KEY);
-//        client.addHeader(
-//                "Authorization",
-//                "Basic " + Base64.encodeToString(
-//                        (username+":"+password).getBytes(),Base64.NO_WRAP)
-//        );
-//        client.get(url,new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                try {
-//                    // TODO create an object to get quotes with a certain tag
-//                    JSONArray quotes = response.getJSONArray("quotes");
-//                    for (int i = 0; i < quotes.length(); i++) {
-//                        JSONObject quote = quotes.getJSONObject(i);
-//                        quoteBody = quote.getString("body");
-//                        allQuotes.add(quoteBody);
-//                    }
-////                    author = quotes.getString("author");
-//                } catch (JSONException e) {
-//                    logError("failed parsing quote", e, true);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-//                logError("Failed getting qoute", throwable, true);
-//            }
-//        });
-//    }
-
-//    private void getQuotes() {
-//        try {
-//            JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
-//                    Request.Method.GET, API_BASE_URL + "qotd",
-//                    null,
-//                    new Response.Listener<JSONArray>() {
-//                        @Override
-//                        public void onResponse(JSONArray response) {
-//                            Log.d(TAG, response.toString());
-//                            for (int i = 0; i < response.length(); i++) {
-//                                JSONObject quote = null;
-//                                try {
-//                                    quote = response.getJSONObject(i);
-//                                    quoteBody = quote.getString("body");
-//                                    allQuotes.add(quoteBody);
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                    logError("failed parsing quote", e, true);
-//                                }
-//                            }
-//                        }
-//                    }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(final VolleyError error) {
-//                    Log.w(TAG, error.toString());
-//                    logError("failed parsing quote", error, true);
-//                }
-//            }) {
-//                @Override
-//                public Map<String, String> getHeaders() throws AuthFailureError {
-//                    Map<String, String> params = new HashMap<String, String>();
-////                    params.put("Content-Type", "application/json; charset=UTF-8");
-//                    params.put("token", API_KEY);
-//                    return params;
-//                }
-//            };
-//            requestQueue.add(jsonArrayRequest);
-//        } catch (Exception e) {
-//        e.printStackTrace();
-//        }
-//
-//    }
 
     private void getQuotes() {
         try {
