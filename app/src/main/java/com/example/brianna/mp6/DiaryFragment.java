@@ -75,6 +75,7 @@ public class DiaryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         return inflater.inflate(R.layout.fragment_diary, container, false);
     }
 
@@ -82,13 +83,17 @@ public class DiaryFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        models = new ArrayList<>();
-        models.add(new Model(R.drawable.sunny, "12 Dec 2018", ""));
-        models.add(new Model(R.drawable.cloudsun, "13 Dec 2018", ""));
-        models.add(new Model(R.drawable.cloud, "14 Dec 2018", ""));
-        models.add(new Model(R.drawable.nightcloud, "15 Dec 2018", ""));
+        Bundle bundle = getArguments();
 
+        models = new ArrayList<>();
+        models.add(new Model(R.drawable.sunny, "12 Dec 2018", "Today, I feel better. The day didn't go as planned but was still a day to appreciate"));
+        models.add(new Model(R.drawable.cloudsun, "13 Dec 2018", "Today, I don't feel so well, mentally and physically. I wasn't able to accomplish as much as I had set out to for work"));
+        models.add(new Model(R.drawable.cloud, "14 Dec 2018", "Today is a bit gloomy but overall I feel good. I Spent today finishing up a good book I started a long time ago "));
+        models.add(new Model(R.drawable.nightcloud, "15 Dec 2018", "I am so happy that my mom is doing better today. I was worried about her all week "));
+
+//        adapter = new Adapter(models, getContext(), bundle.getStringArrayList("selected"));
         adapter = new Adapter(models, getContext());
+
 
         viewPager = view.findViewById(R.id.viewPager);
         imageView = view.findViewById(R.id.info);
@@ -123,13 +128,6 @@ public class DiaryFragment extends Fragment {
         });
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
 
 
     @Override
@@ -138,16 +136,6 @@ public class DiaryFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

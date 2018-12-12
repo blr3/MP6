@@ -30,6 +30,7 @@
             <ImageView
                 android:id="@+id/image"
                 android:src="@drawable/sunny"
+                android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"/>
 
@@ -40,7 +41,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
                 android:text="Diary"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -56,6 +57,7 @@
                 android:ellipsize="end"
                 android:text="Today's entry is blah blah blah"
                 android:textSize="14sp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
